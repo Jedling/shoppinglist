@@ -159,7 +159,6 @@ export default class ShoppingItem extends Vue {
       )
     );
     this.newItem = new ItemModel();
-    console.log(this.shoppingList, "lista");
   }
   private editItem(item: any) {
     item.Edit = true;
