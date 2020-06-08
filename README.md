@@ -1,7 +1,8 @@
 # shoppinglist
 
 Project setup
+ 1.clone project
+ 2.cd app
+ 3.npm install
 
- 1.npm install
-
- 2.npm run serve
+ 4.npm run serve
