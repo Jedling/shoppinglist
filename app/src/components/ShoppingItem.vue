@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 <template>
   <div class="form">
     <div class="row justify-content-center">
@@ -108,7 +107,7 @@
             </table>
           </div>
           <button
-            @click="save()"
+            @click="saveToDb()"
             class="submit mt-3"
             type="submit"
             value="Add to Done"
@@ -118,22 +117,18 @@
         </div>
       </div>
     </div>
-    <!-- <SubmittedList /> -->
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { ItemModel } from "@/types/ItemModel";
 @Component({
-  components: {
-    // SubmittedList,
-  }
+  components: {}
 })
 export default class ShoppingItem extends Vue {
   private newItem: ItemModel = new ItemModel();
   private shoppingList: ItemModel[] = [];
   private added = false;
-  // private submitted: boolean = false;
   private doneList: any[] = [];
   private categoryList: any[] = [
     {
@@ -149,9 +144,9 @@ export default class ShoppingItem extends Vue {
       Name: "Other"
     }
   ];
-  created() {
-    this.$store.dispatch("retrieveShoppingList");
-  }
+  // created() {
+  //   this.$store.dispatch("retrieveShoppingList");
+  // }
   private addItemToList() {
     this.added = true;
     this.shoppingList.push(
@@ -177,6 +172,20 @@ export default class ShoppingItem extends Vue {
     if (this.shoppingList.length === 0) {
       this.added = false;
     }
+  }
+  private async saveToDb() {
+    const data = this.shoppingList;
+
+    console.log("Sending: ", data);
+    // blocked by corse
+    // const response = await fetch("https://shoppinglist-d684b.firebaseio.com", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(data)
+    // });
+    // console.log(response);
   }
 }
 </script>

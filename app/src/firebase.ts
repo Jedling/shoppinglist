@@ -18,9 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 // date issue fix according to firebase
-const settings = {
-  timestampsInSnapshots: true
-};
+const settings = {};
 db.settings(settings);
 
 // firebase collections
